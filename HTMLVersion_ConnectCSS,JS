@@ -8,12 +8,13 @@
 <!DOCTYPE html> <!-- html 버전 지정 -->
 <html lang="ko"> <!-- 페이지 자동 번역 팝업여부 -->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- 문자 인코딩 방식 지정 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- viewport:모바일과 관련 있음 content: 관련 내용 -->
     <title>Document</title>
-    <link rel="stylesheet" href="main.css"> <!-- css 연결하기 -->
-    <script src="./main.js"></script> <!-- js 연결하기 -->
+    <link rel="stylesheet" href="main.css"> <!-- **css 연결하기 -->
+    <script src="./main.js"></script> <!-- **js 연결하기 -->
 </head>
 <body>
     <div>Hello World</div>
@@ -43,5 +44,22 @@ content - 기본 정보의 실제 값 기재
 i.g. </meta>는 HTML 문서(웹페이지)의 제작자, 내용, 키워드 같은, 여러 정보를 검색엔진이나 브라우저에게 제공하는 태그이다. 
 
 viewport - 웹페이지가 실제로 표시되는 영역 (웹페이지 출력되는 영역)
-** 모바일 영역에만 해당하고 일반 desktop에서는 해당사항이 없다.
+** 모바일에 대응하는 작업을 할 때 필요한 내용이고 일반 desktop에서는 해당사항이 없다.
 content - 표시되는 영역에 해당하는 값이다.
+
+<meta charset="UTF-8">
+
+charset(Character set)
+화면에 표시하는 문자를 어떠한 방식으로 인코딩할 것인지 나타내는 속성.
+
+문자 인코딩(Encoding)
+웹페이지에서 볼 수 있는 각각의 문자를 어떤 방식으로 처리할 것인지에 대한 방식 의미.
+
+e.g.
+한글로 '딩' 글자를 표현하고 싶다고 가정한다.
+'딩'글자는 'ㄷ', 'ㅣ', 'ㅇ', 으로 이루어져 있다.
+i.g. 모음과 자음으로 각각의 조합을 만들 수 있다.
+문자 인코딩 방식이 달라질 경우, 모음과 자음으로 글자를 만드는 것이 아닌 '딩'글자가 온전히 존재해야지 문자로 출력이 가능할 수 있다.
+(e.g. EUC-KR 옛날 인코딩 방식)
+
+최근에는 웹에서 UTF-8 인코딩 방식을 표준처럼 사용하고 있다. 
