@@ -1,4 +1,4 @@
-[웹에 관하여] 상대경로 Absolute Path vs. 절대경로 Relative Path
+[웹에 관하여] 상대경로 Absolute Path vs. 절대경로 Relative Path / vscode 내 여러 페이지 관리하는 방법
 
 ./
 주변에서 찾기
@@ -35,3 +35,55 @@ i.g. 컴퓨터 내부에 5500번 이라는 주소에서 내 프로젝트를 개�
 
 '/' 는 
 관리하고 있는 현재 프로젝트(Port:5500)의 서버주소 생략
+프로젝트 완성 후 외부에서 접근이 가능한 서버에 업로드 해놓으면
+'/' 앞에는 외부에서 접근이 가능한 웹사이트 주소가 자동으로 생략이 되는 것이다. 
+
+장점 : 
+'/'를 입력하면 때마다 내 사이트 주소를 입력할 필요 없이 내 사이트의 루트 경로를 기준으로, 특정한 경로를 관리할 수 있다.
+e.g.
+<body>
+    <a href="https://www.naver.com">naver</a>
+    <a href="/about/about.html">About</a>
+</body>
+</html>
+
+index.html 파일 클릭 후 'about'이름으로 된 폴더 생성하기
+'about'폴더 클릭 후 'about.html'이름으로 된 폴더 생성하기
+
+i.e.
+index.html 파일에서 웹페이지에 보이는 'About' 클릭하면 about.html 경로로 이동하도록 명시한 것이다. (이미지1,2)
+그리고 이는 프로젝트를 통해서 메인이 되는 index.html 파일을 기준으로 하위 페이지들을 폴더와 파일을 생성해서
+a태그를 걸고 관리를 할 수 있는 구조를 만든 것이다. 
+
+
+<본격적으로 기능 활용하기! - 브라우저는 index.html 파일을 자동으로 찾는다.>
+위 예시에 이어 about폴더에 있는 about.html 이름을 메인 파일명과 동일하게 index.html으로 바꿀 것이다. (파일명 about.html > 파일명 index.html)
+<body>
+    <a href="https://www.naver.com">naver</a>
+    <a href="/about/index.html">About</a> <!-- 코드 상에도 동일하게 수정 -->
+</body>
+</html>
+
+브라우저창 띄우고 'About' 눌러서 'About!!'이 정상적으로 확인이 가능한 것을 볼 수 있다. (이미지3)
+여기서 '(폴더)/about' 뒤에 있는 index.html를 지워도 브라우저는 index.html 파일을 자동으로 찾는 속성이 있기 때문에
+동일하게 출력이 가능하다. (이미지F)
+
+i.e. index.html이 들어가 있는 폴더명을 정확히 명시한다면 브라우저는 자동으로 index.html 이름의 파일을 찾아서 브라우저에 출력하려고 시도하기 때문이다. 
+<body>
+    <a href="https://www.naver.com">naver</a>
+    <a href="/about">About</a> <!-- 주목! -->
+</body>
+</html>
+
+깔끔하게 특정 키워드로만 접근하게 만들 수 있다. 
+
+------------------------------------------------------
+
+특정한 사이트를 만들 때
+메인 페이지 - '/' 루트 경로 안에 있는 index.html 페이지에서 만든다.
+그 외 페이지 - 'about'이라는 폴더처럼 브라우저가 자동으로 접속할 수 있는 index.html 이라는 이름을 만든다.
+** 따로 관리할 수 있도록 'about'페이지에서만 사용할 수 있는 css/images/js를 따로 관리할 수 있다. 
+
+[주의사항]
+도메인 주소에 /about/로 깔끔하게 떨어진다고 해서 about이 무조건 폴더라는 보장을 할 수 없다. 
+(a.k.a 라우터Router, 라우터 기술들을 이용해 페이지를 구별해주는 것은 나중에 고급 기술 배울 때 알아보기로 하자!)
