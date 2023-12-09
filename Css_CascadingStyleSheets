@@ -1,0 +1,41 @@
+[CSS] Css 선언방식
+
+내장방식
+Html 안에서 Css를 작성하는 방식.
+장점 : 별도의 Css파일을 만들지 않아도 된다.
+단점 : Css양이 많이질 경우, Html 안에서 한번에 다 처리하기 어렵고 유지 보수가 비효율적이다. 
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evelyn.kim</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="/js/main.js"></script>
+    <style> <!-- Html 안에서 Css 작성하는 방법 -->
+        div {
+            text-decoration:underline;
+        }
+        a {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+** 단, 프론트엔드 개발 방식으로 Html, Css, Javascript 파일을 구별해서 관리하면 장점이 많다는 점을 기억해두자. 
+** 번들 : Html, Css, Javascript를 한번에 묶어서 서버에 올리는 방식이다. 
+   번들하는 과정에서 개발하는 내용을 제품화시킬 때 파일로 분류한 내용들을 컴퓨터가 자동으로 합쳐서 내장방식으로 심는 경우가 있다. 
+   이럴 경우, '내장방식'으로 Css를 작성하는 방법은 직접적으로 관리할 필요가 없어서 문제가 되지 않는다. 
+
+
+링크방식
+해당 요소에 직접적으로 style 속성을 작성하는 방식.
+장점 : 속성을 별도로 추가하지 않아도 된다.
+단점 : Css 우선순위로 봤을 때 style이 지나치게 우선하는 문제를 가지고 있어서 유지보수 시 다른 코드로 Css 내용을 덮어서 수정이 어렵다.
+
+
+
+
+
+
+
