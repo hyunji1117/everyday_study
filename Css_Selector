@@ -1,0 +1,36 @@
+1. 기본
+전체 선택자 (Universal Selector)
+범위 안에 있는 모든 요소 선택
+* {
+    background-color:gold;
+}
+
+태그 선택자 (Type Selector)
+태그 이름으로 요소 선택
+단, 태그의 종류가 모든 요소를 구분할 만큼 고유한 것이 아니기에 원하는 요소를 조금 더 정확하게 집어낼 수 있는 class 선택자를 사용할 수 있다. 
+div {
+    background-color:gold;
+}
+
+클래스 선택자 (Class Selector)
+class로 지정한 요소 선택 (중복 선택 가능)
+.name {
+    background-color:gold;
+}
+
+아이디 선택자 (ID Selector)
+전역 속성 id 값을 통해 요소를 찾는 개념
+#name {
+    background-color:gold;
+}
+
+2. 복합
+
+
+3. 가상 클래스
+
+
+4. 가상 요소
+
+
+5. 속성
