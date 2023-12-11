@@ -29,10 +29,11 @@ Html 안에서 Css를 작성하는 방식.
 해당 요소에 직접적으로 style 속성을 작성하는 방식.
 장점 : 속성을 별도로 추가하지 않아도 된다.
 단점 : Css 우선순위로 봤을 때 style이 지나치게 우선하는 문제를 가지고 있어서 유지보수 시 다른 코드로 Css 내용을 덮어서 수정이 어렵다.
+<div style=font-size:100px;>Evelyn kim</div> <!-- 인라인 방식 -->
 
 링크방식 (External CSS) (= 병렬로 연결)
 외부에서 Css 파일을 한번에 가져오는 방식.
-i.e. 해석이 빨리 끝나는 Css가 먼저 연결되는 구조를 갖게 된다.
+i.e. 해석이 빨리 끝나는 Css가 먼저 연결되는 구조를 갖게 된다. (빠르게 모든 Css파일을 연결하는 방식으로 추천한다.)
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,12 +51,10 @@ i.e. box.css는 main.css가 @import를 통해 Html에 연결되기 전까지는 
 <link rel="stylesheet" href="./css/main.css"> <!-- 첫 번째 Css 파일 작성하기 -->
 @import url("./box.css"); /* 두 번째 Css 파일 작성하기 */
 div {
-    width: 300px;
-    height: 300px;
-    background-color: lightcoral;
+  font-size: 100px;
 }
-.box {
-    background-color: lightred;
+div {			/* box.css 파일 */
+    color: coral;
 }
 
 ** 직렬, 병렬 차이 : 
