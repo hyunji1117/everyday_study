@@ -124,6 +124,37 @@ div .name {
 </body>
 
 3. 가상 클래스
+:hover ** 자주 사용하는 선택자
+마우스를 올렸을 때 변화하는 상태를 만들어 준다. (단, 이 외는 웬만하면 Js로 만든다.)
+<body>
+    <div class="box"></div>
+</body>
+div {
+  width: 100px;
+  height: 100px;
+  background-color:orange;
+}
+div:hover {
+  width: 250px;
+}
+
+** 함께 사용하면 효과보는 요소
+전환 효과 (Transition)
+div {
+  width: 100px;
+  height: 100px;
+  background-color:orange;
+  transition: 1s; /* 전환효과로 길게 늘어난다. */
+}
+div:hover {
+  width: 250px;
+}
+
+:active 
+마우스를 올려서 클릭하고 유지하는 동안 변화한다.
+
+:focus
+마우스를 올려서 포커스되면 선택한다. (포커스가 가능한 Html 대화형 콘텐츠에만 해당)
 
 
 4. 가상 요소
