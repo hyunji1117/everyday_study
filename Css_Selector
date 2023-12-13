@@ -25,7 +25,103 @@ class로 지정한 요소 선택 (중복 선택 가능)
 }
 
 2. 복합
+일치 선택자 (Basic Combinator)
+두 요소를 동시에 만족하는 선택자
+** 주의 : 태그 선택자는 맨 앞에 작성해야 컴퓨터가 태그 선택자 임을 인식할 수 있다. 
+div.name {		/* 태그와 클래스를 동시에 충족시킨다. */
+    background-color:gold;
+}
 
+자식 선택자 (Child Combinator)
+해당 선택자의 자식 요소 선택
+div>.profile {
+    background-color:gold;
+}
+
+<body>
+    <div> <!-- div의 -->
+        <ul class="profile"> <!-- .profile 자식 요소 선택자 -->
+            <li class="name">Tom</li>
+            <li class="age">28</li>
+        </ul>
+    </div>
+    <div> <!-- div의 -->
+        <ul class="profile"> <!-- .profile 자식 요소 선택자 -->
+            <li class="name">Nate</li>
+            <li class="age">33</li>
+        </ul>
+    </div>
+    <span class="name">Joon</span>
+</body>
+
+하위(후손) 선택자 (Descendant Combinator)
+해당 선택자의 하위에 있는 요소 선택
+** 주의 : 띄어쓰기가 선택자 기호이다. (아래 예시 참조)
+div .name {
+    background-color:gold;
+}
+<body>
+    <div> <!-- div의 -->
+        <ul>
+            <li class="name">Tom</li> <!-- .name 해당되는 하위 선택자 -->
+            <li class="age">28</li>
+        </ul>
+    </div>
+    <div> <!-- div의 -->
+        <ul>
+            <li class="name">Nate</li> <!-- .name 해당되는 하위 선택자 -->
+            <li class="age">33</li>
+        </ul>
+    </div>
+    <span class="name">Joon</span>
+</body>
+
+인접 형제 선택자 (Adjacent Sibling Combinator) 꼭 기억 해두자!
+선택자의 다음에 해당하는 형제 요소 하나를 선택
+.age+li {
+    background-color:gold;
+}
+<body>
+    <div> 
+        <ul class="profile"> 
+            <li class="name">Tom</li>
+            <li class="age">28</li> <!-- .age 선택자의 -->
+            <li class="company">Kakao</li> <!-- 다음 형제 요소 -->
+        </ul>
+    </div>
+    <div>
+        <ul class="profile"> 
+            <li class="name">Nate</li>
+            <li class="age">33</li> <!-- .age 선택자의 -->
+            <li class="company">Line</li> <!-- 다음 형제 요소 -->
+        </ul>
+    </div>
+    <span class="name">Joon</span>
+</body>
+
+일반 형제 선택자 (General Sibling Combinator)
+선택자의 다음에 해당하는 형제 요소 모두 선택
+.age~li {
+    background-color:gold;
+}
+<body>
+    <div> 
+        <ul class="profile">
+            <li class="name">Tom</li>
+            <li class="age">28</li> <!-- .age의 --> 
+            <li class="company">Kakao</li> <!-- 다음 형제요소 모두 선택자 -->
+            <li class="addr">Seoul</li> <!-- 다음 형제요소 모두 선택자 -->
+        </ul>
+    </div>
+    <div>
+        <ul class="profile"> 
+            <li class="name">Nate</li>
+            <li class="age">33</li> <!-- .age의 --> 
+            <li class="company">Line</li> <!-- 다음 형제요소 모두 선택자 -->
+            <li class="addr">GyeongGi</li> <!-- 다음 형제요소 모두 선택자 -->
+        </ul>
+    </div>
+</body>
 
 3. 가상 클래스
 
