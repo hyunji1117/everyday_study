@@ -154,10 +154,28 @@ div:hover {
 마우스를 올려서 클릭하고 유지하는 동안 변화한다.
 
 :focus
-마우스를 올려서 포커스되면 선택한다. (포커스가 가능한 Html 대화형 콘텐츠에만 해당)
+사용자에게 데이터를 입력받는 요소에 마우스를 올려서 클릭 후 활성화 된 상태포커스 후 선택한다. (Html 대화형 콘텐츠에만 해당)
+
+** 포커스가 가능한 요소에서만 작동이 된다.
+input, a, label, select, button, textarea 등 
+
+그럼 포커스가 가능하지 않는 요소에 :focus를 작동할 수 있을까? 🤔
+대답은 YES!!
+
+e.g. Html div 요소에 tabindex='-1' 추가하면 아래와같이 포커스가 되는 것을 볼 수 있다. 
+i.e. Tab키를 통해 포커스 가능한 순서를 지정하는 것이다. 
 
 
-4. 가상 요소
+4. (동작을 처리하지 않는) 가상 선택자 (pseudo-classes)
+:hover, :active, :focus는 Js에서 다루는 Css 동작 처리가 가능하다.
+단, Css는 동작을 처리하는 개념이 아니기에 극히 일부분에 해당된다.
 
+:first-child
+첫 번째 자식이면 선택하는 선택자 (가상 선택자 기호인 : 으로 시작)
+
+<div class="box" tabindex="-1"></div><br/>
+.box:focus {
+  background-color: lightblue;
+}
 
 5. 속성
