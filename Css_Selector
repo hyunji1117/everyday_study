@@ -172,10 +172,101 @@ i.e. Tab키를 통해 포커스 가능한 순서를 지정하는 것이다.
 
 :first-child
 첫 번째 자식이면 선택하는 선택자 (가상 선택자 기호인 : 으로 시작)
+div가 부모 요소이며, 자식요소 span,p,h3는 같은 부모를 가진 자식 요소이다.
+<div class="name">
+    <span>Tomy</span>
+    <span>Betty</span>
+    <p>Lora</p>
+    <h3>Lily</h3>
+</div>
 
-<div class="box" tabindex="-1"></div><br/>
-.box:focus {
-  background-color: lightblue;
+.name span:first-child{
+  background-color: rgb(187, 238, 157);
 }
 
-5. 속성
+:last-child
+선택자가 형제 요소 중 막내라면 선택.
+클래스 name의 하위 요소 span의 첫 번째 자식 요소 선택.
+
+.name h3:last-child{
+  background-color: rgb(237, 202, 164);
+}
+
+:nth-child(숫자)
+선택자가 형제 요소 중 몇 번째에 해당하면 선택.
+br태그도 하나의 자식요소에 해당된다. (예시1)
+<div class="name">
+    <span>Tomy</span>
+    <span>Betty</span>
+    <p>Lora</p>
+    <h3>Lily</h3>
+</div>
+클래스 name 부모요소의 모든 자식요소 중 두 번째 요소 선택
+.name *:nth-child(2){
+  background-color: rgb(237, 202, 164);
+}
+
+<br/>태그를 Html 코드에 추가할 경우,
+:nth-child 3번째 자식요소를 선택해야 (예시1)과 동일하게 'Betty'를 동일하게 선택 가능하다.(예시2)
+<div class="name">
+    <span>Tomy</span><br/>
+    <span>Betty</span>
+    <p>Lora</p>
+    <h3>Lily</h3>
+</div>
+.name *:nth-child(3){
+  background-color: rgb(237, 202, 164);
+}
+
+:nth-child(숫자n)
+n은 0부터의 숫자를 들어가는 자리이다.
+
+이 외로 여러가지 사용 방법이 있다. 
+2n = 2x1, 2x2, 2x3 = 짝수 번째
+2n+1 = 2x1+1, 2x2+1, 2x3+1 = 홀수 번째
+n+2 = 0+2, 1+2, 2+2 = 2번째 요소부터 선택
+
+부정 선택자 (Nagation) NOT
+괄호 안에 있는 가장 선택자를 제외하고 선택
+.name *:not(span){
+  background-color: rgb(237, 202, 164);
+}
+
+5. 가상 요소 선택자 (Pseudo-Elements) **자주 사용
+가상의 요소를 만들어서 실제로 삽입할 수 있는 구조를 가진다.
+
+::before (콜론::두개 붙여서 쓰는게 웹표준이다.)
+선택자 요소의 내부로 들어가, 선택자의 맨 앞에 내용을 삽입하는 개념.
+
+아래 예시와같이 name이라는 선택자를 가지는 요소 앞에 contant속성에 작성한 내용을 명시한다.
+i.e. '앞!!'이라는 글자를 ::before라는 가상 인라인 요소를 만들어서 name이라는 클래스를 가진 요소의 내부 앞에다 삽입하는 구조이다.
+
+.name::before{		/* ::before는 인라인요소 */
+  content: "앞!!";
+  color: rgb(83, 177, 254);
+}
+
+::after
+선택자 요소의 내부로 들어가, 선택자의 맨 뒤에 내용을 삽입하는 개념.
+** 주의 : Css content 내 " "으로 비워두는 한이 있어도, 필수로 작성해야 한다.
+
+.name::after{
+  content: "뒤!!";
+  color: rgb(83, 177, 254);
+}
+
+인라인 요소는 가로,세로 값을 지정해도 실제로 적용이 안된다. 
+가로, 세로 값을 만들어주려면
+인라인 요소 -> 블럭 요소로 전환해주는 속성을 넣어줘야 한다.
+e.g. display : block 을 추가하면 된다.
+
+.name::after{
+  content: "";
+  color: rgb(83, 177, 254);
+  display: block; /* 인라인 요소를 블록 요소로 전환하는 방법 */
+  width: 100px;
+  height: 100px;
+  background-color:lightpink;
+}
+
+6. 속성
