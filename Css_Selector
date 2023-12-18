@@ -272,9 +272,10 @@ e.g. display : block 을 추가하면 된다.
 6. 속성 선택자 (Attribute) ATTR
 **주의 : 대괄호[] 이용하여 속성 선택자 임을 명시하기.
 
-[속성Attribute입력]
+[속성Attribute]
 속성의 이름만 가지고 선택하는 선택자
-disabled를 가지고 있는 해당 요소가 선택되어 글자 색상이 파란색으로 적용되는 구조이다.
+disabled를 가진 요소가 선택되어 글자 색상이 파란색으로 적용되는 구조.
+
 <body>
     <input type="text" value="evelyn.kim">
     <input type="password" value="password">
@@ -285,7 +286,7 @@ disabled를 가지고 있는 해당 요소가 선택되어 글자 색상이 파�
     color: blue;
 }
 
-속성 이름이 type인 요소를 명시한다.
+(동일html코드에) 속성 이름이 type인 요소 명시하기.
 [type] {
     color: blue;
 }
@@ -293,3 +294,21 @@ disabled를 가지고 있는 해당 요소가 선택되어 글자 색상이 파�
 [속성Attribute="속성 값"]
 속성 선택자와 그의 속성 값과 함께 명시하여 찾는 선택자
 장점 : 정확하게 원하는 속성을 찾을 수 있다.
+
+<body>
+    <input type="text"/><br/>
+    <input type="password"/>
+    <span data-worker-name="evelyn.kim">ddeok.kim</span>
+</body>
+
+속성 선택자 부분에 실제로 값을 입력하지 않아도
+해당 속성을 가지고 있으면 유용하게 사용 가능.
+
+body {
+  margin:50px;
+}
+[data-worker-name] {		/* 모든 속성에 부합하는 선택자_대표적으로 data속성이 있음. */
+    background-color: lightpink;
+    color:red ;
+}
+
