@@ -1,0 +1,23 @@
+스타일 상속
+Css 내용을 적용했을 때, 적용된 내용이 기타 하위 요소까지 영향을 주는 것을 말한다.
+
+body {
+  margin:50px;
+}
+
+.people {		/* people에 Css를 적용하였는데 */
+  color:lightpink;
+  font-weight:bold;
+}
+
+<body>
+    <div class="worker">직원
+      <div class="people">사람		<!-- people 요소 외 하위요소까지 모두 선택이 되었다. -->
+        <div class="Jim">Jim</div>		<!-- 주목! -->
+        <div class="Tommy">Tommy</div>  	<!-- 주목! -->
+        <div class="Eve">Eve</div>      	<!-- 주목! -->
+      </div>
+      <div class="robot">로봇</div>
+    </div>
+</body>
+
