@@ -9,3 +9,26 @@ Css 내용을 Html에 적용할 때 붙는 점수가 높은 선언이 화면에 
 
 조건2
 점수가 같을 경우, 맨 마지막으로 작성한 코드 내용이 우선 적용된다.
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style="color:green;">
+</head>
+	<div id="color_orange"
+     	 class="color_yellow"
+     	 style="color:green;">		<!-- 2순위 (인라인 선언 - 1000점 -->
+      	 Hello World!!
+    </div>
+</html>
+
+div {color:red !important;}		/* 1순위 (!important - 9999999점) */
+#color_orange {color:orange;}		/* 3순위 (ID 선택자 - 100점) */
+.color_yellow {color:yellow;}		/* 4순위 (Class 선택자 - 10점) */
+div {color:blue;}			/* 5순위 (태그 - 1점)*/
+* {color:darkblue;}			/* 6순위 (전체 선택자) - 0점) */
+body {color:purple;}			/* 상속되지 않음 */
