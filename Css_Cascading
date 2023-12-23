@@ -32,3 +32,13 @@ div {color:red !important;}		/* 1순위 (!important - 9999999점) */
 div {color:blue;}			/* 5순위 (태그 - 1점)*/
 * {color:darkblue;}			/* 6순위 (전체 선택자) - 0점) */
 body {color:purple;}			/* 상속되지 않음 */
+
+!importnat > Inline Style > id > class > tag
+왼쪽부터 오른쪽 방향으로
+명시도 우선순위가 높은 순에서 낮은 순으로 간다.
+CSS에서 Cascading은 중요한 개념이기 때문에
+선택자를 적절하게 사용해서 우선순위를 부여해주는것이 바람직하다고 한다.
+
+[출처_daeyun대윤]
+https://iamdaeyun.tistory.com/entry/Lesson-7-CSS-%EC%82%AC%EC%9A%A9%EC%8B%9C-%EB%B0%98%EB%93%9C%EC%8B%9C-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0%EA%B2%83-%EB%AA%85%EC%8B%9C%EB%8F%84﻿
+
