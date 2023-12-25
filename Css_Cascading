@@ -42,3 +42,6 @@ CSS에서 Cascading은 중요한 개념이기 때문에
 [출처_daeyun대윤]
 https://iamdaeyun.tistory.com/entry/Lesson-7-CSS-%EC%82%AC%EC%9A%A9%EC%8B%9C-%EB%B0%98%EB%93%9C%EC%8B%9C-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0%EA%B2%83-%EB%AA%85%EC%8B%9C%EB%8F%84﻿
 
+** 기본 선택자 점수별 순서 (우선 순위 선택자) 기억 해두자.
+아래 이미지의 style.css파일 참조! (링크 통해 확인 가능)
+https://developer-eve.tistory.com/26
