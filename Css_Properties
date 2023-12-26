@@ -1,0 +1,47 @@
+[CSS] CSS 속성 메모
+
+단위
+font-size 사용 시 em과의 관계 확실히 정리해둘 필요 있다.
+but 해당 상황에서 rem은 이런 이슈를 해결해줄 수 있다. 
+비교하여 화면출력 정리
+vw, vh 개념 정리 및 출력 화면 정리
+
+외부 여백(margin)
+margin (10px 20px) 사진으로 정리하기 (값이 2개일 때 위아래 좌우, 3개일 때 상중하만 정리)
+margin의 음수값 사진으로 정리
+
+내부 여백(padding) 
+% 부모 요소의 가로 너비에 대한 비율로 지정 (예시 필요 要搞清楚的)
+속성 (요소의 크기가 늘어남) 내부 여백은 추가되는 것이기에 그 만큼의 요소 크기가 늘어난다.
+
+테두리 선(border)과 생상 표현
+border도 요소의 크기가 커진다. 
+관습에 맞게 작성한다. 
+border-width : 두께, 종류, 색상
+border라는 각각의 방향을 아우르는 단축 속성(선)이며
+두께, 종류, 색상을 이루어진 개별 속성(두께 등)이기도 하다. 
+
+개별속성
+border-style - solid / dashed (파선 ----) / dotted (점선 . . . . . .)
+border-color - 색상 표현 (브라우저에 제공하는 색상 이름 - red, tomato )
+                         16진수 #000, #ffffff
+                         RGB 빛의 삼원색 - grb(255,255,255)
+                         RGBA 빛의 삼원색 + 투명도 (rgba 0,0,0,0.5) 투명도 0=투명/0.5=반투명/1=불투명
+borde-top-width 등종류 정리
+
+모서리 둥글게 (border-radius)
+border-radius : 0 0 10px 0. --> 여기서 0은 단위를 붙이지 않기
+
+크기 계산 (box-sizing)
+개발자 메뉴 활용 사진 정리 필요!! 완전 신기!! 
+box-sizing : border-box;
+
+넘침 제어(overflow)
+부모 요소에 사용
+visible(기본값), hidden, scroll, auto 정리
+단축속성으로 overflow-x (x축으로 넘치는 것만 잘라냄)
+
+출력 특성(display)
+가로 세로 값을 가지는 것은 block요소 이기에 
+span 요소에 display: block 사용하여 활용을 정말 많이 한다.
+block, none
