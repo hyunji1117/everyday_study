@@ -45,3 +45,22 @@ visible(기본값), hidden, scroll, auto 정리
 가로 세로 값을 가지는 것은 block요소 이기에 
 span 요소에 display: block 사용하여 활용을 정말 많이 한다.
 block, none
+
+글꼴/문자
+text-indent : 들여씌기 50px, 내어쓰기 -50px
+수평정렬 : text-align
+text-decoration
+
+배경
+background-image : url("함수 경로 입력")요소의 배경 이미지로 삽입
+background-size : cover(더 긴 너비에 맞춰서 출력), contain(더 짧은 너비에 맞춰서 출력) 이미지 정리
+background-decoration
+background-position : 상하좌우, center도 있다. / 100px(x축) 30px(y축)
+background-repeat
+background-attachment : fixed (정리)
+**패럴렉스(parallax)
+
+** (중요!) 배치 (원하는 위치에 배치하기)
+position: absolute
+위치를 지정하기 위한 기준을 설정해주는 속성
+i.e. 기준을 먼저 잡고 위치값을 지정해야 한다. 
