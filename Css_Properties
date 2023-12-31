@@ -64,3 +64,10 @@ background-attachment : fixed (정리)
 position: absolute
 위치를 지정하기 위한 기준을 설정해주는 속성
 i.e. 기준을 먼저 잡고 위치값을 지정해야 한다. 
+
+position: fixed
+뷰포트 기준으로 배치
+웹페이지 우하단 '맨 위로 올라가기' 버튼 경우, 해당 기능으로 구현가능.
+
+요소 쌓인 순서(stack order)
+예시와 함께 정리하자
