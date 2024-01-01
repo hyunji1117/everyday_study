@@ -71,3 +71,8 @@ position: fixed
 
 요소 쌓인 순서(stack order)
 예시와 함께 정리하자
+
+z-index
+요소의 쌓임 정도를 지정하는 것
+더 뒤에 쌓고 싶으면 -1이하로 설정할 것
+css배치
