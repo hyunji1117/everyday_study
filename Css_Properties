@@ -176,3 +176,8 @@ z-index
 요소의 쌓임 정도를 지정하는 것
 더 뒤에 쌓고 싶으면 -1이하로 설정할 것
 css배치
+
+flex(정렬) - container
+display : flex 를 통해 수평정렬 출력 가능
+flex 부여한 container를 flex container라고 부르고
+그 안에 블록 요소(박스)는 flex items라고 한다. 
