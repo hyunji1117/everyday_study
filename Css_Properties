@@ -1,11 +1,111 @@
 [CSS] CSS 속성 메모
 
-단위
-font-size 사용 시 em과의 관계 확실히 정리해둘 필요 있다.
-but 해당 상황에서 rem은 이런 이슈를 해결해줄 수 있다. 
-비교하여 화면출력 정리
-vw, vh 개념 정리 및 출력 화면 정리
+단위(Units)
+font-size px vs. em 그리고 rem
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우선순위 선택자</title>
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
+rel="stylesheet">
+    <link rel="stylesheet" href="/login/css/style.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color:lightcoral;
+}
+
+.child{
+  width: 50%;
+  height: 50%;
+  background-color:royalblue;
+}
+
+기본적으로 font-size는 16px 만큼의 크기가 들어가 있다.
+
+단위 em
+폰트 사이즈(16px) 만큼의 1em으로 사용으로 한다.
+주변 상황에 따라 상대적으로 폰트 크리가 달라벼 관리가 필요한 단점이 있다.
+
+여기서 Css child width값을 10em으로 바꾸면 16px 곱하기 10으로 160px i.e.160em으로 환산된다. 
+동일하게 20em으로  값을 바꾸면 아래와 같이 320px이 출력된다. 
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color:lightcoral;
+}
+
+.child{
+  width: 20em;    /* 16px X 20 = 320px */
+  height: 50%;
+  background-color:royalblue;
+}
+
+만약 부모 요소에 font-size를 10px로 세팅한다면
+자식 요소에 상속이 되어 10px X 20 = 200px으로 출력이 된다. 
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color:lightcoral;
+  font-size: 10px;
+}
+
+.child{
+  width: 20em;    /* 1px X 20 = 200px */
+  height: 50%;
+  background-color:royalblue;
+}
+
+이렇게 부모 요소 font-size 세팅으로 인해 상대적으로 변하는 특성으로
+잘 못 사용하면 혼란스러운 단위가 될 수 있어 별도의 관리가 필요하다. 
+그리고 rem은 이런 이슈를 해결해줄 수 있다. 
+
+단위 rem
+Html 요소(root요소)에 지정된 폰트 크기를 기준으로 사용한다.
+주변 상황이 바뀌어도 단위가 수정되는 일이 없도록 만들어주는 장점이 있다.
+루트 요소의 폰트만 바꿔주면 모든 rem 값의 폰트 크기를 동시에 비율로 제어할 수 있다. 
+
+e.g.
+html 요소에 font-size를 16px로 세팅한다고 가정
+부모 요소에 font-size를 10px로 세팅하여도
+결과 값은 16px X 20 = 320px로 출력된다. 
+Root 요소에 지정 폰트를 기준으로 사용되는 특성이 반영된 예시라고 볼 수 있다. 
+
+html {
+  font-size: 16px;
+}
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color:lightcoral;
+  font-size: 10px;
+}
+
+.child{
+  width: 20rem;    /* 16px X 20 = 320px */
+  height: 50%;
+  background-color:royalblue;
+}
+
+단위 vw/vh
+뷰포트의 가로/세로 넓이/높이의 절반 만큼의 크기를 사용한다.
+
+----------------------------------------------------------------------------
 외부 여백(margin)
 margin (10px 20px) 사진으로 정리하기 (값이 2개일 때 위아래 좌우, 3개일 때 상중하만 정리)
 margin의 음수값 사진으로 정리
