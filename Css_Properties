@@ -107,7 +107,27 @@ html {
 
 ----------------------------------------------------------------------------
 외부 여백(margin)
-margin (10px 20px) 사진으로 정리하기 (값이 2개일 때 위아래 좌우, 3개일 때 상중하만 정리)
+
+margin : 30px(상하) 80px(좌우);
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+
+.box{
+  width: 300px;
+  height: 300px;
+  margin: 30px 80px;
+  background-color: brown;
+}
+
+.box2{
+  width: 300px;
+  height: 300px;
+  background-color: brown;
+}
+
+3개일 때 상중하만 정리)
 margin의 음수값 사진으로 정리
 
 내부 여백(padding) 
