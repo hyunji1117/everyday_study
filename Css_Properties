@@ -165,9 +165,17 @@ margin의 음수값 사진으로 정리
   border: 50px solid gold;
 }
 
-border-width : 두께, 종류, 색상
-border라는 각각의 방향을 아우르는 단축 속성(선)이며
-두께, 종류, 색상을 이루어진 개별 속성(두께 등)이기도 하다. 
+border-width : border라는 각각의 방향을 아우르는 단축 속성이며
+두께, 종류, 색상을 이루어진 개별 속성이기도 하다. 
+
+단축 속성 이란?
+서로 다른 여러 가지 CSS 속성의 값을 지정할 수 있는 CSS 속성
+e.g.
+background 속성의
+background-color
+background-image
+background-repeat
+background-position (en-US)
 
 ---------------------------------
 개별속성
