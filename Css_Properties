@@ -179,11 +179,16 @@ background-position (en-US)
 
 ---------------------------------
 개별속성
-border-style - solid / dashed (파선 ----) / dotted (점선 . . . . . .)
-border-color - 색상 표현 (브라우저에 제공하는 색상 이름 - red, tomato )
-                         16진수 #000, #ffffff
-                         RGB 빛의 삼원색 - grb(255,255,255)
-                         RGBA 빛의 삼원색 + 투명도 (rgba 0,0,0,0.5) 투명도 0=투명/0.5=반투명/1=불투명
+개별속성으로 border-style: solid(실선) / dashed(파선) / dotted(점선)을 주로 사용한다. (점선 사용률 크지 않음)
+
+border-color : 색상 표현
+색상 이름	브라우저에 제공하는 색상 이름	e.g. red, tomato
+Hex 색상코드	16진수 색상	e.g. #000, #FFF(#fff)
+RGB	빛의 삼원색	e.g. rgb(255, 215, 0)
+RGBA	빛의 삼원색 + 투명도	e.g. rgba(0, 0, 0, 0.5) / 투명도 0=투명, 0.5=반투명, 1=불투명
+
+---------------------------------
+
 borde-top-width 등종류 정리
 
 모서리 둥글게 (border-radius)
