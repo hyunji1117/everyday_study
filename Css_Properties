@@ -188,12 +188,44 @@ RGB	빛의 삼원색	e.g. rgb(255, 215, 0)
 RGBA	빛의 삼원색 + 투명도	e.g. rgba(0, 0, 0, 0.5) / 투명도 0=투명, 0.5=반투명, 1=불투명
 
 ---------------------------------
+border-방향-속성 단축 속성 (대표예시)
 
-borde-top-width 등종류 정리
+border-top: 두께 종류 색상;
+.box {
+  width: 200px;
+  height: 200px;
+  background-color:gold;
+  margin: 25px;
+  border-top: 5px solid #000; <!-- 주목! -->
+}
 
+border-top-width: 두께;
+border-top-style: 종류;
+border-top-color: 색상;
+.box {
+  width: 200px;
+  height: 200px;
+  background-color:gold;
+  margin: 25px;
+  border-top-width: 10px; <!-- 주목! -->
+  border-top-style: dashed; <!-- 주목! -->
+  border-top-color: #000; <!-- 주목! -->
+}
+
+---------------------------------
 모서리 둥글게 (border-radius)
-border-radius : 0 0 10px 0. --> 여기서 0은 단위를 붙이지 않기
 
+border-radius : 0 0 10px 0;
+여기서 0은 단위를 붙이지 않기로 한다. 
+.box {
+  width: 200px;
+  height: 200px;
+  background-color:gold;
+  margin: 25px;
+  border-radius : 0 0 50px 0; <!-- 주목! -->
+}
+
+---------------------------------
 크기 계산 (box-sizing)
 개발자 메뉴 활용 사진 정리 필요!! 완전 신기!! 
 box-sizing : border-box;
