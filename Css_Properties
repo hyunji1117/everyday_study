@@ -226,10 +226,18 @@ border-radius : 0 0 10px 0;
 }
 
 ---------------------------------
-크기 계산 (box-sizing)
-개발자 메뉴 활용 사진 정리 필요!! 완전 신기!! 
-box-sizing : border-box;
+크기 계산 (box-sizing) 
+box의 사이즈를 150px로 지정하였으나
+개발자 도구 확인하면 border, padding 값을 지정한 Box1은 270px로 출력된다. 
 
+i.e.
+Box1 가로 : 150px + 10px(좌) + 10px(우) + 50px(좌) + 50px(우) = 270px
+Box2 세로 : 150px + 10px(좌) + 10px(우) + 50px(좌) + 50px(우) = 270px
+
+이 처럼 box1과 box2의 크기를 맞추려 수동으로 셋팅하는 것에 한계가 보인다. 
+여기서 box1의 가로, 세로 넓이를 없애고 box-sizing : border-box;를 추가하면 자동으로 box2와 동일한 사이즈로 맞출 수 있다. 
+
+---------------------------------
 넘침 제어(overflow)
 부모 요소에 사용
 visible(기본값), hidden, scroll, auto 정리
