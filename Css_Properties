@@ -239,10 +239,56 @@ Box2 세로 : 150px + 10px(좌) + 10px(우) + 50px(좌) + 50px(우) = 270px
 
 ---------------------------------
 넘침 제어(overflow)
-부모 요소에 사용
-visible(기본값), hidden, scroll, auto 정리
+부모와 자식 요소가 있다고 가정한다.
+
+<body>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+</body>
+
+.parent{
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+  background-color: gold;
+}
+
+.child {
+  height: 100px;
+  background-color: darkorange;
+}
+
+여기서 자식의 가로 넓이를 부모보다 크게 설정하였을 때
+.parent{
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+  background-color: gold;
+  overflow: hidden;   /* 부모요소에 적용 */
+}
+
+.child {
+  width: 300px;   /* 더 크게 설정 */
+  height: 100px;
+  background-color: darkorange;
+}
+
+overflow : visible;
+넘치는 영역을 그대로 보여준다.
+
+overflow : hidden;
+넘치는 영역이 잘려서 보인다.
+
+overflow : scroll;
+직관적으로 잘려서 보이지만
+넘치는 영역의 내용을
+사용자가 볼 수 있도록 한다. 
+
+auto 정리
 단축속성으로 overflow-x (x축으로 넘치는 것만 잘라냄)
 
+---------------------------------
 출력 특성(display)
 가로 세로 값을 가지는 것은 block요소 이기에 
 span 요소에 display: block 사용하여 활용을 정말 많이 한다.
