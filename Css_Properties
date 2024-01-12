@@ -285,15 +285,43 @@ overflow : scroll;
 넘치는 영역의 내용을
 사용자가 볼 수 있도록 한다. 
 
-auto 정리
-단축속성으로 overflow-x (x축으로 넘치는 것만 잘라냄)
+overflow : auto;
+브라우저가 스트롤바를 만들지 자동으로 판단 후 생성한다. 
+(가로는 넘치지 않아서 스트롤바 생성되지 않음)
+
+개별 속성으로 overflow-x / overflow-y는 x축/y축 각각의 축을 명시하여 적용한다.
 
 ---------------------------------
 출력 특성(display)
-가로 세로 값을 가지는 것은 block요소 이기에 
-span 요소에 display: block 사용하여 활용을 정말 많이 한다.
-block, none
 
+block요소는 가로 세로 값을 가지고 있는데
+그에 반에 가로와 세로를 지정하지 못하는 span 요소는
+display: block; 속성을 추가하여 가로, 세로를 바꿀 수 있는 요소로 활용을 많이 한다.
+
+<body>
+  <span class="parent">
+    Evelyn.Kim
+  </span>
+</body>
+
+body {
+  margin: 20px;
+}
+.parent{
+/*   display: block; */		/* 적용하지 않음! 이미지 블로그 참조 */
+  width: 200px;
+  height: 150px;
+  background-color: gold;
+}
+
+.parent{
+  display: block;		/* 적용 후! 이미지 블로그 참조 */
+  width: 200px;
+  height: 150px;
+  background-color: gold;
+}
+
+---------------------------------
 글꼴/문자
 text-indent : 들여씌기 50px, 내어쓰기 -50px
 수평정렬 : text-align
