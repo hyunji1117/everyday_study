@@ -322,19 +322,126 @@ body {
 }
 
 ---------------------------------
-글꼴/문자
-text-indent : 들여씌기 50px, 내어쓰기 -50px
-수평정렬 : text-align
-text-decoration
+글꼴
+font-style : 글자의 기울기;
+font-weight : 글자의 두께 100 ~ 900 숫자 사용;
+font-family: 글꼴(서체), "글 꼴(서체)", ... 글꼴계열;
 
+글꼴 계열_serif (바탕체 계열)
+글꼴 계열_sans-serif (고딕체 계열)
+특징 : 웹에서 주로 보이는 글꼴 계열이다.
+글꼴 계열_monospace (고정넓이 동등 글꼴 계열)
+특징 : 글자 간 간격이 일정하여 가독성이 좋다. 코드 에디터에서 주로 사용.
+글꼴 계열_cursive (필기체 계열)
+글꼴 계열_fantasy (장식 글꼴 계열)
+
+<body>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Itaque porro aliquam animi! Libero, beatae consequuntur 
+    vero minima assumenda quis quas mollitia, maxime non temporibus 
+    magnam aut doloremque error sunt dolores.
+  </p>
+</body>
+
+body {
+  margin: 20px;
+}
+p {
+  width: 300px;
+  box-sizing: border-box;
+  border: 3px solid darkorange;
+/*   line-height: 1.4; */
+}
+
+여기서 글자 행간 간격은 line-height로 넣으면 된다. 
+
+body {
+  margin: 20px;
+}
+p {
+  width: 300px;
+  box-sizing: border-box;
+  border: 3px solid darkorange;
+  line-height: 1.4;		/* 추가 내용! */
+}
+
+---------------------------------
+문자
+text-indent : 50px (들여씌기), -50px (내어쓰기);
+text-align : left, right, center 문자 정렬 방식 (수평 정렬);
+text-decoration : none, underline, overline*(윗줄 잘 안씀), line-through(중앙선, 취소선)
+a 태그로 연결된 글자는 기본적으로 파란색 글씨에 밑줄이 있다. (아래 예시 참조)
+
+<body>
+  <a href="www.google.com">Google</a>
+</body>
+
+body {
+  margin: 20px;
+}
+a {
+  display: block;
+  width: 300px;
+  height: 200px;
+  /* color: #000; */
+  font-size: 100px;
+/*   text-decoration: none; */
+  background-color: gold;
+}
+
+여기서 글자색 지정 및 밑줄 없애기 위해 text-decoration을 사용하면 된다.
+
+body {
+  margin: 20px;
+}
+a {
+  display: block;
+  width: 300px;
+  height: 200px;
+  color: #000;    /* 주목! */
+  font-size: 100px;
+  text-decoration: none;    /* 주목! */
+  background-color: gold;
+}
+
+---------------------------------
 배경
 background-image : url("함수 경로 입력")요소의 배경 이미지로 삽입
-background-size : cover(더 긴 너비에 맞춰서 출력), contain(더 짧은 너비에 맞춰서 출력) 이미지 정리
-background-decoration
-background-position : 상하좌우, center도 있다. / 100px(x축) 30px(y축)
-background-repeat
-background-attachment : fixed (정리)
+<body>
+  <div></div>
+</body>
+
+body {
+  margin: 20px;
+}
+div {
+  width: 200px;
+  height: 200px;
+  background-color: gold;
+  background-image: url("https://s.pstatic.net/shopping.phinf/20240103_
+  15/6a8a1221-4b79-4c18-be35-4bd3619a6671.jpg");		/* 링크 추가! */
+};
+
+background-size : 이미지 크기 제어 속성 (바둑판식 배열)
+cover(더 긴 너비에 맞춰서 출력), contain(더 짧은 너비에 맞춰서 출력)
+
+background-repeat : 반복 제어 속성
+
+background-position : 요소의 배경 이미지 위치
+방향으로 위치 결정 : 상,하,좌,우,center
+단위로 x,y축 위치 결정 : 200px(x축) 50px(y축)
+
+background-attachment : 배경 이미지 스크롤 특성 scroll, fixed;
+background-attachment: scroll;
+특징 : 스크롤 내리면 이미지가 올라간다.
+background-attachment: fixed;
+특징 : 스크롤 내려도 이미지는 화면에 고정되어 있다.
+
 **패럴렉스(parallax)
+스크롤에 따라 오브젝트와 배경 이미지가 시간차를 두고 변하는 기법.
+
+---------------------------------
 
 ** (중요!) 배치 (원하는 위치에 배치하기)
 position: absolute
@@ -348,11 +455,13 @@ position: fixed
 요소 쌓인 순서(stack order)
 예시와 함께 정리하자
 
+---------------------------------
 z-index
 요소의 쌓임 정도를 지정하는 것
 더 뒤에 쌓고 싶으면 -1이하로 설정할 것
 css배치
 
+---------------------------------
 flex(정렬) - container
 display : flex 를 통해 수평정렬 출력 가능
 flex 부여한 container를 flex container라고 부르고
