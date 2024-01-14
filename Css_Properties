@@ -443,26 +443,249 @@ background-attachment: fixed;
 
 ---------------------------------
 
-** (중요!) 배치 (원하는 위치에 배치하기)
-position: absolute
+포지션 position : 요소의 위치 지정 기준 (원하는 위치에 배치하기) ** (중요!)
+i.e.기준을 먼저 잡고 위치값을 설정해야 한다. 
+
+함께 사용되는 속성 : (방향 별 거리 지정)
+top
+bottom
+left
+right
+z-index
+
+position: relative (요소 자신을 기준으로 지정)
+relative 선언 후 아무 변화가 없는 것이 정상이다. 
+
+<body>
+  <div class="container">
+    <div class="box">BOX 1</div>
+    <div class="box">BOX 2</div>
+    <div class="box">BOX 3</div>
+  </div>
+</body>
+
+body {
+  margin: 50px;
+}
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: #d9ed92;
+  font-size: 50px;
+  font-weight: 700px;
+}
+
+.container .box:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  background-color: #99d98c;
+}
+
+.container .box:nth-child(2) {
+  width: 150px;
+  height: 100px;
+  background-color: #52b69a;
+  position:relative;		/* 적용 후 변화 없음 */
+}
+
+.container .box:nth-child(3) {
+  width: 250px;
+  height: 100px;
+  background-color: #168aad;
+}
+
+여기서 방향 설정하면 BOX2가 이동한 것을 볼 수 있다. 
+
+.container .box:nth-child(2) {
+  width: 150px;
+  height: 100px;
+  background-color: #52b69a;
+  position:relative;
+  top: 50px;		/* 이동 방향 설정 */
+  left: 200px;		/* 이동 방향 설정 */
+}
+
+하지만 극단적이 예시로 들었을 때 BOX2가 오른쪽 끝으로 갈 경우
+BOX1과 BOX3 사이 공백이 생기는 원인을 알 도리가 없어진다. 
+그렇기에 자기자신을 기준으로 배치하는 position: relative는 쓰지 않는다고 보면 된다. 
+**사실 상 BOX2는 해당 공백에 있고, left: 2000px;로 배치된  BOX2는 허상인 것이다. 
+
+.container .box:nth-child(2) {
+  width: 150px;
+  height: 100px;
+  background-color: #52b69a;
+  position:relative;
+  top: 50px;
+  left: 2000px;		/* 변경! */
+}
+
+position: absolute (부모 요소를 기준으로 지정)
 위치를 지정하기 위한 기준을 설정해주는 속성
 i.e. 기준을 먼저 잡고 위치값을 지정해야 한다. 
 
-position: fixed
-뷰포트 기준으로 배치
+여기서 조금 전에 추가한 position: relative를 absolute로 바꾼다면
+자신을 절대 기준으로 했던 relative와 달리 상대 기준을 잡는 absolute는 뷰포트(브라우저)를 기준으로 잡는 것을 볼 수 있다.
+
+.container .box:nth-child(2) {
+  width: 150px;
+  height: 100px;
+  background-color: #52b69a;
+  position: absolute;		/* 변경! */
+  top: 50px;
+  left: 200px;
+}
+
+그리하여 상대 기준으로 부모 요소를 절대적 기준으로 잡는다고 명시를 해야 한다. 
+
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: #d9ed92;
+  font-size: 50px;
+  font-weight: 700px;
+  position: relative;		/* 2.여기를 쓰는 것! */
+}
+
+.container .box:nth-child(2) {
+  width: 150px;
+  height: 100px;
+  background-color: #52b69a;
+  position: absolute;		/* 1.여기를 쓰기 위해 */
+  top: 50px;
+  left: 200px;
+}
+
+position: fixed (뷰포트i.e.브라우저를 기준으로 지정)
+i.e. fixed를 쓰는 것은 주변 배치와 더이상 상호작용하지 않고 뷰포트 기준으로 배치한다
 웹페이지 우하단 '맨 위로 올라가기' 버튼 경우, 해당 기능으로 구현가능.
 
+---------------------------------
 요소 쌓인 순서(stack order)
-예시와 함께 정리하자
+
+조건 :
+1. 요소에 position값이 있는 경우, 위에 쌓인다.
+2. 1번의 조건을 충족할 경우, z-index 속성 값이 높을 수록 위로 쌓인다.
+3. 1번과 2번의 조건이 같은 경우, Html의 구조가 더 나중에 작성되어 있을 수록 위에 쌓인다.
+
+body {
+  margin: 50px;
+}
+.container {
+  width: 300px;
+  height: 300px;
+  background-color: #f4acb7;
+  font-size: 25px;
+  font-weight: 700px;
+  position: relative;		/* postion 값이 있음 */
+}
+
+.container .box { 
+  border: 1.5px solid #000;
+  box-sizing: border-box;
+}
+
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+  position: relative;		/* postion 값이 있음 */
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+  position: absolute; 		/* postion 값이 있음 + Html 구조가 나중에 있음 */
+  top: 30px;
+  left: 80px;
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+}
 
 ---------------------------------
 z-index
-요소의 쌓임 정도를 지정하는 것
-더 뒤에 쌓고 싶으면 -1이하로 설정할 것
-css배치
+
+z-index를 적용하면 BOX1이 가장 위에 쌓인다. 
+
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+  position: relative;
+  z-index: 1;		/* 주목! */
+}
+
+더 뒤에 쌓고 싶으면 -1이하로 설정하면 된다.
+
+** 주의사항 (중요!)
+인라인 요소여도 position: relative/absolute를 쓰면 자동으로 block 요소로 바뀌어 가로,세로 넓이를 지정할 수 있다.
+
+<body>
+  <span>
+    Evelyn.Kim
+  </span>
+</body>
+
+body {
+  margin: 20px;
+}
+
+span { 
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  position: absolute;
+}
 
 ---------------------------------
 flex(정렬) - container
-display : flex 를 통해 수평정렬 출력 가능
-flex 부여한 container를 flex container라고 부르고
-그 안에 블록 요소(박스)는 flex items라고 한다. 
+display : flex 를 통해 수평정렬 출력 가능하다.
+
+body {
+  margin: 50px;
+}
+.container {
+  background-color: #f4acb7;
+  font-size: 25px;
+  font-weight: 700px;
+  /* display: flex; */
+}
+
+.container .box { 
+  border: 1.5px solid #000;
+  box-sizing: border-box;
+}
+
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcad4;
+}
+
+그리고 아래는 display: flex 적용 후 출력 화면이다. 
+
+.container {
+  background-color: #f4acb7;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;		/* 주목! */
+}
+
+display: flex를 부여한 container의 큰 박스를 flex container라고 부르고
+그 안에 블록 요소(작은 박스)를 flex items라고 한다. 
