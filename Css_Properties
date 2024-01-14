@@ -689,3 +689,46 @@ body {
 
 display: flex를 부여한 container의 큰 박스를 flex container라고 부르고
 그 안에 블록 요소(작은 박스)를 flex items라고 한다. 
+
+---------------------------------
+display에 대해 자세하게 살펴보면 아래와 같다. (개념 정리)
+
+display: flex;
+display: inline-flex; 인라인 요소처럼 동작할 수 있도록 한다. 
+flex container를 기준으로 본다.
+
+flex-direction
+flex-direction : row; (좌 > 우 / 행) - X축 주축(Main-axis) 그리고 이를 가로 지르는 Y축 교차 축(Cross-axis)가 있다. (이미지 정리)
+flex-direction : row-reverse; (우 > 좌 / 행)
+
+flex-direction : column; (위 > 아래 / 열) - Y축 주축
+flex-direction : column-reverse; (아래 > 위 / 열)
+
+i.e. display는 수평정렬을 하던 수직정렬을 하던 1차원의 하나의 축을 가지고 정렬하는 개념이다. 
+flex-wrap : flex item 줄바꿈 여부
+
+예시 정리
+justtify-content : 수평정렬 방법
+flex-start
+flex-end
+center
+
+아이템의 순서는 바뀌지 않는다. 
+
+align-content : 여러줄의 수직정렬 방법 (조건이 까다로워서 생각보다 많이 쓰이지 않는다)
+stretch
+flex-start
+flex-end
+center
+
+align-items : 한 줄의 수직정렬 방법
+
+flex-item
+order 숫자가 작을 수록 앞에 정렬된다. -1, 1, 0, 15, 20, ...
+flex-grow : 비율로 지정
+flex-shrink : flex item의 감소 너비 비율 (기본 비율 1) 이미지 정리
+
+전환 효과 (transition)
+:hover, :active를 자연스럽게 만들어 주는 단축 속성이다. 
+개별 속성으로는 4가지가 있다. (비교 이미지 정리)
+전환 속성의 특정 속성만 사용이 가능 하다. (정리)
