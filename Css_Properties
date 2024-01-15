@@ -705,7 +705,69 @@ flex-direction : column; (위 > 아래 / 열) - Y축 주축
 flex-direction : column-reverse; (아래 > 위 / 열)
 
 i.e. display는 수평정렬을 하던 수직정렬을 하던 1차원의 하나의 축을 가지고 정렬하는 개념이다. 
+---------------------------------
 flex-wrap : flex item 줄바꿈 여부
+flex container의 넓이가 부족하고 각각의 item(box)들을 한 줄에 표현할 때 지정된 크기보다 작게 찌그러진 item(box)를 볼 수 있다.
+
+<body>
+  <div class="container">
+    <div class="box">BOX 1</div>
+    <div class="box">BOX 2</div>
+    <div class="box">BOX 3</div>
+    <div class="box">BOX 4</div>
+    <div class="box">BOX 5</div>
+  </div>
+</body>
+
+body {
+  margin: 50px;
+}
+.container {
+  width: 400px;
+  height: 200px;
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+}
+
+.container .box { 
+  border: 1px solid #007f5f;
+  box-sizing: border-box;
+}
+
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background-color: #55a630;
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background-color: #80b918;
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background-color: #aacc00;
+}
+
+.container .box:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  background-color: #bfd200;
+}
+
+.container .box:nth-child(5) {
+  width: 100px;
+  height: 100px;
+  background-color: #d4d700;
+}
+
+---------------------------------
+
 
 예시 정리
 justtify-content : 수평정렬 방법
