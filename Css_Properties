@@ -687,17 +687,50 @@ body {
   display: flex;		/* 주목! */
 }
 
+Css flex 관련된 속성에 대해 자세하게 살펴보자!
+특정 요소에 display: flex; 부여한다. (대부분 수평정렬 목적용으로 사용된다)
 display: flex를 부여한 container의 큰 박스를 flex container라고 부르고
-그 안에 블록 요소(작은 박스)를 flex items라고 한다. 
+그 안에 블록 요소(작은 박스)를 flex items라고 한다. (위 예시 이미지 참조)
+여기서 Flex Container에 부여하는 속성, Flex Items에 부여하는 속성이 각각으로 나누어져 있다.
 
----------------------------------
-display에 대해 자세하게 살펴보면 아래와 같다. (개념 정리)
 
-display: flex;
+Flex Container 속성
+flex-flow
+flex-direction
+flex-wrap
+justify-content
+align-content
+align-items	order
+flex
+flex-grow
+flex-shrink
+flex-basis
+align-self
+
+Flex Items 속성
+align-content : 여러줄의 수직정렬 방법 (조건이 까다로워서 생각보다 많이 쓰이지 않는다)
+stretch
+flex-start
+flex-end
+center
+
+align-items : 한 줄의 수직정렬 방법
+stretch
+flex-start
+flex-end
+center
+
+flex-item
+
+Flex Container 지정 속성 : 
+display: block, inline 값을 입력하여 화면에 출력되는 특성을 제어하는 속성
+
+flex-flow
+
+flex-direction
 display: inline-flex; 인라인 요소처럼 동작할 수 있도록 한다. 
 flex container를 기준으로 본다.
 
-flex-direction
 flex-direction : row; (좌 > 우 / 행) - X축 주축(Main-axis) 그리고 이를 가로 지르는 Y축 교차 축(Cross-axis)가 있다. (이미지 정리)
 flex-direction : row-reverse; (우 > 좌 / 행)
 
@@ -705,8 +738,11 @@ flex-direction : column; (위 > 아래 / 열) - Y축 주축
 flex-direction : column-reverse; (아래 > 위 / 열)
 
 i.e. display는 수평정렬을 하던 수직정렬을 하던 1차원의 하나의 축을 가지고 정렬하는 개념이다. 
----------------------------------
-flex-wrap : flex item 줄바꿈 여부
+
+flex-wrap
+Flex Items 줄바꿈 처리여부 (묶음여부)
+
+nowrap (줄바꿈 없음)
 flex container의 넓이가 부족하고 각각의 item(box)들을 한 줄에 표현할 때 지정된 크기보다 작게 찌그러진 item(box)를 볼 수 있다.
 
 <body>
@@ -728,7 +764,8 @@ body {
   background-color: #007f5f;
   font-size: 25px;
   font-weight: 700px;
-  display: flex;
+  display: flex;		/* 먼저 선언 후 */
+  flex-wrap: nowrap;		/* 줄바꿈 안 함 */
 }
 
 .container .box { 
@@ -766,16 +803,179 @@ body {
   background-color: #d4d700;
 }
 
----------------------------------
+wrap (줄바꿈)
+.container {
+  width: 400px;
+  height: 200px;
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;		/* 먼저 선언 후 */
+  flex-wrap: wrap;		/* 줄바꿈 하기 */
+}
 
+** PS **
+.container {
+  width: 250px;
+  /* height: 200px; */		/* 높이 삭제 또는 auto로 바꾸면 
+  				줄바꿈한 박스의 최종 높이에 맞게 배경이 맞춰진다. */
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-예시 정리
-justtify-content : 수평정렬 방법
-flex-start
-flex-end
-center
+justify-content
+주축(X축) 의 수평정렬 방법
+flex-start : Flex Items 왼쪽으로 정렬
+flex-end : Flex Items 오른쪽으로 정렬
 
-아이템의 순서는 바뀌지 않는다. 
+.container {
+  /* width: 300px; */
+  /* height: 200px; */
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  justify-content: flex-end;		/* 오른쪽 정렬 적용 */
+  flex-wrap: nowrap;
+}
+
+center : Flex Items 가운데로 정렬
+.container {
+  /* width: 300px; */
+  /* height: 200px; */
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  justify-content: center;		/* 가운데로 정렬 */
+  flex-wrap: nowrap;
+}
+
+(** 여기서 아이템(박스)의 순서는 바뀌지 않는다.)
+
+align-content
+주축을 수직으로 바꾸어 여러 줄 정렬 방법
+
+조건 : 
+1. 줄바꿈 상태여야 한다. (flex-wrap: wrap;)
+2. 정렬이 가능한 빈 공간이 있어야 한다. 
+3. flex items가 두줄 이상 이어야 한다.
+
+조건이 까다로워서 생각보다 활용도가 높지 않다.
+
+stretch : Flex Items 세로 높이를 늘려 container 높이에 맞추며 왼쪽 정렬
+body {
+  margin: 50px;
+}
+.container {
+  width: 350px;
+  height: 300px;
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container .box { 
+  border: 1px solid #007f5f;
+  box-sizing: border-box;
+}
+
+.container .box:nth-child(1) {
+  width: 100px;
+  /* height: 100px; */		/* 높이 미지정으로 stretch하여 container 높이에 맞추게 된다. */
+  background-color: #55a630;
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  /* height: 100px; */
+  background-color: #80b918;
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  /* height: 100px; */
+  background-color: #aacc00;
+}
+
+.container .box:nth-child(4) {
+  width: 100px;
+  /* height: 100px; */
+  background-color: #bfd200;
+}
+
+.container .box:nth-child(5) {
+  width: 100px;
+  /* height: 100px; */
+  background-color: #d4d700;
+}
+
+stretch 상태에서 flex items(작은 박스) 높이를 지정하면 아래와같이 출력된다. 
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;		/* 세로 높이 지정 */
+  background-color: #55a630;
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background-color: #80b918;
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background-color: #aacc00;
+}
+
+.container .box:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  background-color: #bfd200;
+}
+
+.container .box:nth-child(5) {
+  width: 100px;
+  height: 100px;
+  background-color: #d4d700;
+}
+
+flex-start : Flex Items 왼쪽 정렬
+.container {
+  width: 350px;
+  height: 300px;
+  background-color: #007f5f;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;		/* 적용!! */
+}
+
+flex-end : Flex Items 오른쪽 정렬
+center : Flex Items 가운데 정렬
+
+align-items
+주축을 수직으로 바꾸어 한 줄 정렬 방법
+
+stretch : Flex Items 각 줄 정렬 (items 높이 값 미적용)
+flex-start : Flex Items 각 줄 왼쪽 정렬
+flex-end : Flex Items 각 줄 오른쪽 정렬
+center : Flex Items 각 줄 중앙 정렬
+
+Flex Items 지정 속성 : 
+order
+flex
+flex-grow
+flex-shrink
+flex-basis
+align-self
 
 align-content : 여러줄의 수직정렬 방법 (조건이 까다로워서 생각보다 많이 쓰이지 않는다)
 stretch
@@ -790,7 +990,6 @@ order 숫자가 작을 수록 앞에 정렬된다. -1, 1, 0, 15, 20, ...
 flex-grow : 비율로 지정
 flex-shrink : flex item의 감소 너비 비율 (기본 비율 1) 이미지 정리
 
----------------------------------
 전환 효과 (transition)
 :hover, :active를 자연스럽게 만들어 주는 단축 속성이다. 
 개별 속성으로는 4가지가 있다. (비교 이미지 정리)
@@ -799,7 +998,6 @@ flex-shrink : flex item의 감소 너비 비율 (기본 비율 1) 이미지 정�
 transition-timming-function : 전환 효과의 타이밍 함수를 지정하는 것.
 transition-delay : 전환 효과가 몇 초 뒤에 시작하는지 대기시간 지정하는 것.
 
----------------------------------
 변환
 transform: 원근법, 이동, 크기, 회전, 기울임;
 
@@ -819,6 +1017,3 @@ perspective 속성
 관찰대상을 부모로 지정 혹은 본인에게 지정의 차이
 
 backface-visibility
-
-
-
