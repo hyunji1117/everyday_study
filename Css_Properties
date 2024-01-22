@@ -649,6 +649,7 @@ body {
   margin: 50px;
 }
 .container {
+  /* width: auto; */		/* flex일 때 블로요소로 가로 넓이가 최대로 늘어나려고 한다. */
   background-color: #f4acb7;
   font-size: 25px;
   font-weight: 700px;
@@ -678,7 +679,7 @@ body {
   background-color: #ffcad4;
 }
 
-그리고 아래는 display: flex 적용 후 출력 화면이다. 
+그리고 아래는 display: flex 적용 후 Flex container으로 만들어 출력된 화면이다. 
 
 .container {
   background-color: #f4acb7;
