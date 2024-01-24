@@ -1072,8 +1072,54 @@ Container가 점점 줄어서 안에 있는 flex items를 찌그러트리는 상
   flex-shrink: 0;		/* 기본값 1을 막아 0으로 적용하면 각 items의 실체 크기를 유지 해준다. */
 }
 
-flex-basis : 비율로 계산되도록 만들어준다.
+flex-basis : 단위; (기본값 auto)
 공간 배분 전 기본 너비
+비율로 계산되도록 만들어준다.
+
+flex-basis : auto;는 content 내용의 너비를 뜻한다. 
+여기서 flex-grow를 설정해도 실제 (content)글씨 내용이 들어있기 때문에 적용되지 않는다. 
+
+body {
+  margin: 50px;
+}
+.container {
+  width: 500px;
+  height: 150px;
+  background-color: #0077b6;
+  font-size: 25px;
+  font-weight: 700px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.container .box { 
+  border: 1px solid #0077b6;
+  box-sizing: border-box;
+  flex-basis: 0;		/* 글자 만큼의 너비를 0으로 설정 */
+  text-align: center;		/* text 중앙 정렬 */
+  line-height: 100px;		/* 위아래 높이 추가하여 센터로 맞추기 */
+}
+
+.container .box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background-color: #caf0f8;
+  flex-grow: 2;		/* 기본너비 없이 증가너비 2배수로 정렬 */
+}
+
+.container .box:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background-color: #ade8f4;
+  flex-grow: 1;		/* 기본너비 없이 증가너비 1배수로 정렬 */
+}
+
+.container .box:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background-color: #90e0ef;
+  flex-grow: 3;		/* 기본너비 없이 증가너비 3배수로 정렬 */
+}
 
 align-self
 
