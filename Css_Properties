@@ -1349,12 +1349,87 @@ rotate만 명시하면 3D로 보이지 않아 원근법 함수를 추가하여 �
 }				  /* 꼭 회전 함수 앞에, i.e.transform 모든 속성 맨 앞에 배치해야 한다. */
 
 
-perspective 속성
+perspective(속성) : 단위; (원근거리 해당 값)
+하위요소를 관찰하는 원근 거리를 지정
 
-함수와 속성의 차이점 (비교 정리)
+perspective함수와 perspective속성 차이점 : 
 
-관찰대상을 부모로 지정 혹은 본인에게 지정의 차이
+속성/함수	적용 대상	요소가 변환되는 기준점(위치) 설정
+perspective : 500px;             (권장)속성 형태	관찰 대상의 부모 요소에 적용	perspective-origin
+transform:perspetive(500px);       함수 형태	관찰 대상의 원근거리 부여 요소에 직접 적용	transform-origin
+i.e. 관찰대상을 부모로 지정 혹은 본인에게 지정의 차이
 
+body {
+  margin: 50px;
+  background-color: #DADBDD;
+}
 
+.container {
+  width: 400px;
+  height: 150px;
+  background-color: #6698FF;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  
+}
+
+.container .item {
+  width: 225px;
+  height: 150px;
+  background-color: #FFCC66;
+  color: #000;
+  transform: perspective(500px) rotateY(50deg);		/* perspective함수로 자기자신에게 지정 */
+}
+
+----
+
+.container {
+  width: 400px;
+  height: 150px;
+  background-color: #6698FF;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  perspective: 500px;		/* 부모 요소에 perspective속성 적용 */
+}
+
+.container .item {
+  width: 225px;
+  height: 150px;
+  background-color: #FFCC66;
+  color: #000;
+  transform: rotateY(50deg);
+}
 
 backface-visibility
+뒤집었을 때 뒷면이 보이지 않도록 해주는 속성
+
+.container .item {
+  width: 225px;
+  height: 150px;
+  background-color: #FFCC66;
+  color: #000;
+  transform: rotateY(180deg);		/* 180도 회전 */
+}
+
+.container .item {
+  width: 225px;
+  height: 150px;
+  background-color: #FFCC66;
+  color: #000;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;		/* 뒷면이 보이지 않독록 명시 */
+}
+
+
+
+
+
+
+
+
+
+
