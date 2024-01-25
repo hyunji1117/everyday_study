@@ -1139,14 +1139,92 @@ i.e. 시각적으로 2:1:3 비율로 보이지 않아 복잡하기에
 ______________________________
 
 전환 효과 (transition)
+요소의 전 상태와 후 상태를 자연스럽게 만들어주는 전환효과 지정 단축 속성
 
-transition : 
-요소의 전 상태와 후 상태를 자연스럽게 만들어주는 전환효과 지정 단축 속성﻿
+transition-property : 속성이름; (기본값 all - 모든 Css속성에 적용)
+전환 효과를 사용할 특정 속성의 이름을 명시한다.
 
-transition-property 속성명
-transition-duration 지속시간 (필수 포함 속성)
-transition-timing-function 타이밍함수
-transition-dely 대기시간
+<body>
+  <div class="container">
+    <div class="box">Transition</div>
+  </div>
+</body>
+
+body {
+  margin: 50px;
+}
+
+div {
+  width: 150px;
+  height: 150px;
+  background-color: #16E2F5;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  transition: 1s;		/* 적용 후 자연스러운 색상,크기 변화! */
+}
+
+div:active {
+  width: 500px;
+  background-color: #F52916;
+}
+
+여기서 특정  속성 이름(width)을 명시한다면
+위에서 부드럽게 변했던 색상이 뚝뚝 끊기면서 바뀌고
+직접 명시를 했던 속성 이름(width)는 그대로 부드럽게 움직인다. 
+
+div {
+  width: 150px;
+  height: 150px;
+  background-color: #16E2F5;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  transition: width 1s;		/* 특정 속성 이름 추가 */
+}
+
+transition-duration : 시간; (기본값 0) (필수 포함 속성)
+전환 효과의 지속시간 지정
+
+여기서 transition 속성이름 지정 외 다른 속성도 함께 지정 가능하며
+각각 다른 지속시간을 지정할 수 있는 장점이 있다. 
+
+div {
+  width: 150px;
+  height: 150px;
+  background-color: #16E2F5;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  transition: 
+    width .5s,				/* 각각 줄 나누고 */
+    background-color 3s;		/* 지속시간을 별도 명시할 수 있다. */
+}
+
+transition-timing-function (=easing function) : ease 기본값(느리게>빠르게>느리게), linear(일정하게), 
+ease-in(느리게>빠르게), ease-out(빠르게>느리게), ease-in-out(느리게>빠르게>느리게)
+전환효과의 타이밍 함수를 지정한다.
+
+자세한 정보는 아래 참조
+Easing 함수 치트 시트 https://easings.net/ko﻿
+Html, Css, Javascript로 easing 효과를 얻을 수 있다. https://gsap.com/docs/v3/Eases﻿
+
+transition-dely : 시간; (기본값 0s)
+전환 효과가 몇 초 뒤에 시작할지 대기시간 지정 속성
+
+div {
+  width: 150px;
+  height: 150px;
+  background-color: #16E2F5;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  transition: 1s 2s;		/* 선 지속시간, 후 대기시간 */
+}
 
 :hover, :active를 자연스럽게 만들어 주는 단축 속성이다. 
 개별 속성으로는 4가지가 있다. (비교 이미지 정리)
@@ -1155,22 +1233,128 @@ transition-dely 대기시간
 transition-timming-function : 전환 효과의 타이밍 함수를 지정하는 것.
 transition-delay : 전환 효과가 몇 초 뒤에 시작하는지 대기시간 지정하는 것.
 
-변환
-transform: 원근법, 이동, 크기, 회전, 기울임;
+
+변환 효과 (transform)
+
+요소를 변환시켜주는 속성
+변환 함수를 사용하여 원근법, 이동, 크기, 회전, 기울임 등 변환 효과를 주는 것이다.
+
+body {
+  margin: 50px;
+}
+
+.container {
+  width: 150px;
+  height: 150px;
+  background-color: #BDF516;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+}
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  background-color: #4E16F5;
+  transform: rotate(45deg);		/* 변환 함수 명시 */
+}
+
+여기서 scale(크기)를 명시 해보자. 
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  background-color: #4E16F5;
+  transform: rotate(45deg) scale(1.2);		/* 크기를 1.2배로 명시 */
+}
 
 변환 함수
 2D
-scale(동시 적용 가능)
+translate : X축, Y축으로 이동 (단위 px)
+
+body {
+  margin: 50px;
+  background-color: #DADBDD;
+}
+
+.container {
+  width: 150px;
+  height: 150px;
+  background-color: #837E7C;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+}
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #FFDF00;
+  translate: 30px 30px;		/* X축으로 30px 이동, Y축으로 30px 이동 */
+}
+
+translate : X(x) 축 개별 이동 (단위 px)
+translate : Y(y) 축 개별 이동 (단위 px)
+scale : 숫자(X축,Y축 동시 적용 가능) (권장, X축 Y축 개별 크기 지정 비권장)
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #FFDF00;
+  scale: 1.5;		/* 크기 1.5배 명시 */
+}
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #FFDF00;
+  scale: 1.5;
+  opacity: 0.5;		/* 투명도 지정하여 scale가 얼마나 커졌는지 보자! */
+}
+
+rotate(degree) : 회전(각도) (단위 deg)
+skewX(x) : X축 개별 기울임 (단위 deg) - 마름모 만들 수 있음
+skewY(y) : Y축 개별 기울임 (단위 deg) - 마름모 만들 수 있음
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #FFDF00;
+  transform: perspective(500px) skew(45deg);		/* 적용! */
+}
 
 3D
-rotateX(x)
-rotateY(y) 이미지 정리 (3D로 보이는 것을 알 수 있다.)
-
+rotateX(x) : X축을 기준으로 3D 회전
+rotateY(y) : Y축을 기준으로 3D 회전
 **글씨가 있으면 찌그러 지는 이슈가 있다. 
-perspective(함수)는 앞에 있어야지만 적용이 가능하다. 
+
+perspective(함수) : 원근법(거리)
+앞에 있어야지만 적용이 가능하다. 
+rotate만 명시하면 3D로 보이지 않아 원근법 함수를 추가하여 회전하는 것을 보자.
+
+.container .item {
+  width: 150px;
+  height: 150px;
+  color: #000;
+  background-color: #FFDF00;
+  transform: perspective(500px) rotateX(45deg);	/* X축을 기준으로 3D회전 */
+}				  /* 꼭 회전 함수 앞에, i.e.transform 모든 속성 맨 앞에 배치해야 한다. */
+
 
 perspective 속성
+
 함수와 속성의 차이점 (비교 정리)
+
 관찰대상을 부모로 지정 혹은 본인에게 지정의 차이
+
+
 
 backface-visibility
