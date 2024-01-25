@@ -722,7 +722,7 @@ display: inline-flex; 인라인 요소처럼 동작할 수 있도록 한다.
 flex-direction
 주축 설정 (박스 정렬)
 위에서 flex container과 flex items를 만들고 container의 주축을 설정하는 것. (수평 or 수직)
-flex container를 기준으로..
+flex container를 기준으로.. (하지만 flex container 안에서는 수평 정렬된 구조여서 flex-direction이 필요 없다)
 
 (기본값) row : (좌 > 우 / 행) - X축 주축(Main-axis) 그리고 이를 가로 지르는 Y축 교차 축(Cross-axis)가 있다.
              row-reverse : (우 > 좌 / 행)
@@ -1121,11 +1121,33 @@ body {
   flex-grow: 3;		/* 기본너비 없이 증가너비 3배수로 정렬 */
 }
 
-align-self
+여기서 flex-basis를 100으로 설정한다면
+기본 contant(글자영역)을 100px로 지정하는 것이다.
+그리고 남은 영역을 기존 세팅한 2:1:3 비율로 배분하게 된다.
+
+.container .box { 
+  border: 1px solid #0077b6;
+  box-sizing: border-box;
+  flex-basis: 100;		/* 새로 설정! */
+  text-align: center;
+  line-height: 100px;
+}
+
+i.e. 시각적으로 2:1:3 비율로 보이지 않아 복잡하기에
+기본적으로 flex-basis를 0으로 맞춰서 flex-grow에 맞는 비율로 출력하려고 한다. 
 
 ______________________________
 
 전환 효과 (transition)
+
+transition : 
+요소의 전 상태와 후 상태를 자연스럽게 만들어주는 전환효과 지정 단축 속성﻿
+
+transition-property 속성명
+transition-duration 지속시간 (필수 포함 속성)
+transition-timing-function 타이밍함수
+transition-dely 대기시간
+
 :hover, :active를 자연스럽게 만들어 주는 단축 속성이다. 
 개별 속성으로는 4가지가 있다. (비교 이미지 정리)
 전환 속성의 특정 속성만 사용이 가능 하다. (정리)
