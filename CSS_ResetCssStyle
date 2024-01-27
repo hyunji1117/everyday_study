@@ -19,4 +19,7 @@ i.e. 브라우저에서 제공하는 Css 스타일을 초기화 하고 작업을
 사용하는 크롬 브라우저에서는 흰색 영역이 기본으로 margin 값이 셋팅된 것이 테스트해볼 수 있다.
 구글 검색창에 'reset.css cdn' 입력 후 jsDelivr로 작성된 링크 들어간다.
 링크를 들어가 코드 복사 후 index.html의 css link 코드 위에 붙여넣기 하면 된다. 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+
 적용 후 새로고침하면 브라우저 상단 margin 공간이 없어진 것을 볼 수 있다. 
