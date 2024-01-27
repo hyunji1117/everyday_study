@@ -142,7 +142,26 @@ margin : 10px(상) 30px(좌우) 80px(하);
 }
 
 margin 음수값 적용 (자주 쓰지 않지만 유용할 때가 있음)
-잘 모르겠다.. 좀 더 찾아보고 포스팅할 것
+잘 모르겠다.. 좀 더 찾아보고 포스팅하겠다.
+
+블록 요소에 가로 사이즈가 있는 상태에서 margin값의 좌우가 auto라면
+해당 요소는 가운데 정렬이 된다. 
+
+.container .heroes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: orange;
+  max-width: 700px;		/* 가로 사이즈 지정 */
+  margin: auto;		/* 마진 오토 적용 */
+}
+
+.container .heroes .hero {
+  width: 80px;
+  height: 84px;
+  margin: 4px;
+  background-color: #555;
+}
 
 ---------------------------------
 내부 여백(padding) 
