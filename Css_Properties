@@ -246,15 +246,42 @@ border-radius : 0 0 10px 0;
 
 ---------------------------------
 크기 계산 (box-sizing) 
-box의 사이즈를 150px로 지정하였으나
-개발자 도구 확인하면 border, padding 값을 지정한 Box1은 270px로 출력된다. 
+box의 사이즈를 150px로 지정하였는데
+border과 padding을 적용하고 나니
+개발자 도구에서 Box1은 270px로 출력된다. 
 
 i.e.
-Box1 가로 : 150px + 10px(좌) + 10px(우) + 50px(좌) + 50px(우) = 270px
-Box2 세로 : 150px + 10px(좌) + 10px(우) + 50px(좌) + 50px(우) = 270px
+Box1 가로 : 150px(기본가로값) + 10px(border좌) + 10px(border우) + 50px(padding좌) + 50px(padding우) = 270px
+Box2 세로 : 150px(기본가로값) + 10px(border좌) + 10px(border우) + 50px(padding좌) + 50px(padding우) = 270px
 
-이 처럼 box1과 box2의 크기를 맞추려 수동으로 셋팅하는 것에 한계가 보인다. 
-여기서 box1의 가로, 세로 넓이를 없애고 box-sizing : border-box;를 추가하면 자동으로 box2와 동일한 사이즈로 맞출 수 있다. 
+아래 이미지 처럼 box1과 box2의 크기를 맞추려 수동으로 셋팅하는 것에는 한계가 보인다. 
+여기서 box1에 box-sizing : border-box;를 추가하면 자동으로 box2와 동일한 사이즈로 맞출 수 있다. 
+
+다른 예시로 보자!
+hero라는 작은 박스가 32개 있다. 
+hero 박스에 border값을 3px씩 주고나니 박스가 위,아래,좌,우 3px씩 늘어난 상황! (아래 왼쪽 이미지 참조)
+box-sizing: border-box; 명시하고 박스의 크기 기준을 가로,세로 80px,84px로 픽스한다.
+
+.container .heroes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: orange;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.container .heroes .hero {
+  width: 80px;
+  height: 84px;
+  margin: 4px;
+  background-color: #555;
+  border: 3px solid #fff;		/* border사용으로 위아래좌우 3px 늘어난 상황 */
+  border-radius: 10px;
+  box-sizing: border-box;		/* 적용하여 가로,세로 80px,84px 유지! */
+  transform: skewX(-14deg);
+}
 
 ---------------------------------
 넘침 제어(overflow)
