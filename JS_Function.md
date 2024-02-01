@@ -42,3 +42,4 @@ let c = sum(2,4);
 
 console.log(a,b,c); // (4) 변수 a,b,c 출력 > 11,9,6
 ```
+<img width="686" alt="스크린샷 2024-02-02 오전 8 54 30" src="https://github.com/hyunji1117/everyday_study/assets/151576407/965a0b1d-0946-4b35-9620-b63393ed0ce8">
