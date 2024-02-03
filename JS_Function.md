@@ -42,4 +42,20 @@ let c = sum(2,4);
 
 console.log(a,b,c); // (4) 변수 a,b,c 출력 > 11,9,6
 ```
-<img width="686" alt="스크린샷 2024-02-02 오전 8 54 30" src="https://github.com/hyunji1117/everyday_study/assets/151576407/965a0b1d-0946-4b35-9620-b63393ed0ce8">
+<img width="686" alt="스크린샷 2024-02-02 오전 8 54 30" src="https://github.com/hyunji1117/everyday_study/assets/151576407/965a0b1d-0946-4b35-9620-b63393ed0ce8">  
+
+### 기명 함수  
+이름이 있는 함수를 '기명 함수'라고 한다.  
+```
+// 함수를 선언하는 것
+function Evelyn(){  // 함수 이름('Evelyn'부분)에는 원하는 이름을 넣어주면 된다.
+  console.log('Evelyn!');
+};
+
+// 함수를 호출하는 것
+Evelyn();
+```
+
+### 익명 함수 
+이름이 없는 함수는 '익명 함수'라고 한다. 
+이러한 익명 함수들은 데이터로써 활용되거나 변수(예시 name과같은)에 할당되어서 활용되기도 한다. 
