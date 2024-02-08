@@ -71,3 +71,30 @@ boxEl.addEventListener('click', function (){
 i.e. boxEl에 이벤트를 추가할지 듣고 있다가 클릭이 일어나면 익명 함수를 실행시킨다는 의미이다.  
 */
 ```
+
+js에서 class 추가하기  
+```
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <div class="box">BOX!</div>    
+</body>
+</html>
+```
+let boxEl = document.querySelector('.box');
+
+console.log(boxEl);
+
+boxEl.addEventListener('click', function(){
+  console.log('Click!');
+  boxEl.classList.add('active');	// class추가!!
+});
+```
+![GIFMaker_me](https://github.com/hyunji1117/everyday_study/assets/151576407/0bf32c97-d6d2-414d-a730-3ce54929b27f)
