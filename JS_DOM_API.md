@@ -88,6 +88,7 @@ js에서 class 추가하기
 </body>
 </html>
 ```
+```
 let boxEl = document.querySelector('.box');
 
 console.log(boxEl);
@@ -97,4 +98,4 @@ boxEl.addEventListener('click', function(){
   boxEl.classList.add('active');	// class추가!!
 });
 ```
-![GIFMaker_me](https://github.com/hyunji1117/everyday_study/assets/151576407/0bf32c97-d6d2-414d-a730-3ce54929b27f)
+<img src="![GIFMaker_me](https://github.com/hyunji1117/everyday_study/assets/151576407/0bf32c97-d6d2-414d-a730-3ce54929b27f)">
