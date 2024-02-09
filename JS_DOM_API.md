@@ -38,6 +38,7 @@ HTML <script> 영역까지 코드를 읽고 콘솔창에 값을 출력하는 오
 <img width="688" alt="스크린샷 2024-02-06 오전 7 44 32" src="https://github.com/hyunji1117/everyday_study/assets/151576407/ea51768d-7076-4d0f-aa60-090936ad2684">
 
 ### DOM API  실행 과정
+요소 1개만 검색,찾기를 통한 실행 과정
 ```
 // HTML 요소(Element) 1개 검색/찾기
 const boxEl = document.querySelector('.box');
@@ -88,6 +89,7 @@ js에서 class 추가하기
 </body>
 </html>
 ```
+그리고 콘솔창에 active 추가/제거 하고 추가/제거 되었는지 확인도 함께 해준다.
 ```
 let boxEl = document.querySelector('.box');
 
@@ -98,4 +100,60 @@ boxEl.addEventListener('click', function(){
   boxEl.classList.add('active');	// class추가!!
 });
 ```
-<img src="![GIFMaker_me](https://github.com/hyunji1117/everyday_study/assets/151576407/0bf32c97-d6d2-414d-a730-3ce54929b27f)">
+<img width="688" alt="콘솔창에 class active 추가 확인하기" src="https://github.com/hyunji1117/everyday_study/assets/151576407/0bf32c97-d6d2-414d-a730-3ce54929b27f)">
+<img width="688" alt="스크린샷 2024-02-09 오후 10 42 03" src="https://github.com/hyunji1117/everyday_study/assets/151576407/dd29a9fd-026c-4a7c-b477-c555d8d6d403">
+
+요소 모두 검색,찾기를 통한 실행 과정
+```
+// HTML 요소(Element) 모두 검색/찾기
+const boxEls = document.querySelectorAll('.box');
+console.log(boxEls);
+
+// 찾은 요소들 반복해서 익명 함수로 실행
+// 여기서 익명 함수를 인수로 추가했다.
+boxEls.forEach(function (){});
+
+// 첫 번째 매개변수(boxEl): 반복되는 요소 (이름 지정 가능)
+// 두 번째 매개변수(index): 반복되는 번호 (통상적으로 index로 사용)
+boxEls.forEach(function (boxEl, index){});
+
+// 콘솔창 출력
+boxEls.forEach(function (boxEl, index){
+  boxEl.classList.add(`other-${index + 1}`);
+  console.log(index, boxEl);
+});
+```
+이런 데이터를 기반으로 js를 통해 box class order번호 만들어 보자!  
+```
+const boxEls = document.querySelectorAll('.box');
+
+boxEls.forEach(function (boxEl, index){
+  boxEl.classList.add(`order-${index + 1}`);
+  console.log(index, boxEl);
+});
+```
+<img width="1194" alt="스크린샷 2024-02-09 오후 11 06 56" src="https://github.com/hyunji1117/everyday_study/assets/151576407/34b219b7-5c54-4fd4-91b6-c4bc65c1e342">
+
+textContent 라는 속성을 통해 text로 된 내용을 얻고  
+이 text 를 다른 내용으로 지정하는 것을 보도록 하자!  
+```
+const boxEl = document.querySelector('.box');
+
+// Getter, 값을 얻는 용도
+// textContent 라는 속성을 통해 text로 된 내용이 반환되는 것.
+console.log(boxEl.textContent); // Box!!
+
+// Setter, 값을 지정하는 용도
+// textContent 부분에 1 대신 Evelyn!을 넣겠다(지정하겠다).
+boxEl.textContent = 'Evelyn!';
+console.log(boxEl.textContent); // Evelyn!!
+```
+<img width="1192" alt="스크린샷 2024-02-09 오후 11 18 20" src="https://github.com/hyunji1117/everyday_study/assets/151576407/2e00e3e2-1e5a-4f81-9748-2cd9e5122d8c">
+
+
+
+
+
+
+
+
